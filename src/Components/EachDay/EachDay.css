@@ -1,0 +1,11 @@
+.EachDay {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.DayWeather {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
