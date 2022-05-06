@@ -2,16 +2,18 @@ import React from "react";
 import './TodayForecast.css';
 import sunny from './sunny.png';
 
-function TodayForecast() {
+function TodayForecast(props) {
+    let iconUrl = `http://openweathermap.org/img/wn/${props.icon}@2x.png`
+    
     return (
         <div className="TodayForecast">
-            <h2>72</h2>
-            <p>Sunny</p>
+            <h2>{Math.round(props.temp)}°</h2>
+            <p>{props.sky}</p>
             <div>
-                <img src={sunny} width="100" height="100"></img>
+                <img src={iconUrl} width="100" height="100"></img>
                 <div className="HighLow">
-                    <p>High: 82</p>
-                    <p>Low: 67</p>
+                    <p>High: 72°</p>
+                    <p>Low: 62°</p>
                 </div>
             </div>
         </div>
