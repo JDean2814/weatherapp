@@ -1,6 +1,8 @@
 const apiKey = '71a9af80e5fec649349d98fd51cd3685';
 const baseURL = 'https://api.openweathermap.org/data/2.5/';
 const geoURL = `http://api.openweathermap.org/geo/1.0/`;
+let current;
+let sevenDay;
 let lat;
 let lon;
 
@@ -23,17 +25,32 @@ const Weather = {
     },
 
     async searchWeather(lat, lon) {
-        const urlToFetch = `${baseURL}onecall?lat=${lat}&lon=${lon}&exclude=alerts&appid=${apiKey}&units=imperial`;
+        const sevenUrlToFetch = `${baseURL}onecall?lat=${lat}&lon=${lon}&exclude=alerts&appid=${apiKey}&units=imperial`;
+        const currUrlToFetch = `${baseURL}weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+        let arr = [];
 
         try {
-            const response = await fetch(urlToFetch);
+            const response = await fetch(currUrlToFetch);
             if (response.ok) {
                 const jsonResponse = await response.json();
-                return jsonResponse;
+                current = jsonResponse;
             }
         }catch(error) {
             console.log(error);
-        }
+        };
+
+        try {
+            const response = await fetch(sevenUrlToFetch);
+            if(response.ok) {
+                const jsonResponse = await response.json();
+                sevenDay = jsonResponse;
+            }
+        } catch (error) {
+            console.log(error);
+        };
+
+        return arr = [current, sevenDay];
+
     }
 }
 
