@@ -1,4 +1,3 @@
-const apiKey = '71a9af80e5fec649349d98fd51cd3685';
 const baseURL = 'https://api.openweathermap.org/data/2.5/';
 const geoURL = `http://api.openweathermap.org/geo/1.0/`;
 let current;
@@ -8,7 +7,7 @@ let lon;
 
 const Weather = {
     async searchCity(search) {
-        const urlToFetch = `${geoURL}direct?q=${search}&limit=5&appid=${apiKey}`;
+        const urlToFetch = `${geoURL}direct?q=${search}&limit=5&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
 
         try {
             const response = await fetch(urlToFetch);
@@ -25,8 +24,8 @@ const Weather = {
     },
 
     async searchWeather(lat, lon) {
-        const sevenUrlToFetch = `${baseURL}onecall?lat=${lat}&lon=${lon}&exclude=alerts&appid=${apiKey}&units=imperial`;
-        const currUrlToFetch = `${baseURL}weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+        const sevenUrlToFetch = `${baseURL}onecall?lat=${lat}&lon=${lon}&exclude=alerts&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=imperial`;
+        const currUrlToFetch = `${baseURL}weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=imperial`;
         let arr = [];
 
         try {
