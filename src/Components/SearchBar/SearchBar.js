@@ -6,6 +6,7 @@ function SearchBar(props) {
     
     function search(state) {
         props.onSearch(state);
+        setState('');
     }
 
     function handleKeyPress(event) {
@@ -16,8 +17,9 @@ function SearchBar(props) {
 
     return (
         <div>
-            <input placeholder='Enter a city name' onChange={event => setState(event.target.value)} onKeyUp={handleKeyPress}></input>
-            <button onClick={() => {search(state)}}>Search</button>
+            <input placeholder='Enter a city name..' onChange={event => setState(event.target.value)} onKeyUp={handleKeyPress} value={state}></input>
+            <button onClick={() => {search(state);
+                                    setState('');}}>Search</button>
         </div>
     )
 }

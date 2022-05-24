@@ -9,8 +9,8 @@ function EachDay(props) {
             <p>{props.date}</p>
             <div className="DayWeather">
                 <img src={iconUrl} width="40" height="40"></img>
-                <p>{Math.round(props.tempHi)}</p>
-                <p>{Math.round(props.tempLo)}</p>
+                <p>{Math.round(props.tempHi)}°</p>
+                <p>{Math.round(props.tempLo)}°</p>
             </div>
         </div>
     )

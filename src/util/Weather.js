@@ -20,6 +20,7 @@ const Weather = {
             }
         }catch(error) {
             console.log(error);
+            alert('Location not found in database. Try again.');
         }
     },
 
@@ -36,6 +37,7 @@ const Weather = {
             }
         }catch(error) {
             console.log(error);
+            window.alert("Ay Bruv! That aint no city!");
         };
 
         try {

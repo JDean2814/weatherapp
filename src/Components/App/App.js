@@ -7,24 +7,23 @@ import Weather from '../../util/Weather';
 
 function App() {
 
-  const [city, setCity] = useState();
   const [currWeather, setCurrWeather] = useState({});
   const [sevWeather, setSevWeather] = useState({});
+  const [isLoaded, setIsLoaded] = useState(false);
 
   React.useEffect(() => {
-    setCity('New York');
     Weather.searchCity('New York').then(results => {
       Weather.searchWeather(results[0], results[1]).then(results => {
         setCurrWeather(results[0]);
         results[1].daily.shift();
         setSevWeather(results[1].daily);
+        setIsLoaded(true);
       });
     });
   }, []);
 
 
   function search(search) {
-    setCity(search);
     Weather.searchCity(search).then(results => {
       Weather.searchWeather(results[0], results[1]).then(results => {
         setCurrWeather(results[0]);
@@ -45,15 +44,15 @@ function App() {
     let date = new Date(dt * 1000);
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
   }
-  
-  if(!city || !currWeather) {
-    return <h1>Loading...</h1>
-  }  else {
-    return (
+
+
+  return (
       <div className='App'>
         <h1>Weather App</h1>      
         <div className='Weather'> 
           <SearchBar onSearch={search} />
+        {(isLoaded) ? (
+        <div>  
           <h2 className='CityName'>{currWeather.name}</h2>
           <h3>{getDayOfWeek(currWeather.dt)} {getDate(currWeather.dt)}</h3>
           <TodayForecast temp={currWeather.main.temp}
@@ -65,9 +64,10 @@ function App() {
           <SevenDayForecast days={sevWeather}
                             getDayOfWeek={getDayOfWeek} />
         </div>
+        ) : (<h1>Loading...</h1>)}                 
+        </div>
       </div>  
     );
-  }
-}
+}    
 
 export default App;
