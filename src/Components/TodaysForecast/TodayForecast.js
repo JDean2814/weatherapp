@@ -10,7 +10,7 @@ function TodayForecast(props) {
             <h2>{Math.round(props.temp)}°</h2>
             <p>{props.sky}</p>
             <div>
-                <img src={iconUrl} width="100" height="100"></img>
+                <img src={iconUrl} width="100" height="100" alt=""></img>
                 <div className="HighLow">
                     <p>High: {Math.round(props.tempHi)}°</p>
                     <p>Low: {Math.round(props.tempLo)}°</p>

@@ -8,7 +8,7 @@ function EachDay(props) {
         <div className="EachDay">
             <p>{props.date}</p>
             <div className="DayWeather">
-                <img src={iconUrl} width="40" height="40"></img>
+                <img src={iconUrl} width="40" height="40" alt=""></img>
                 <p>{Math.round(props.tempHi)}°</p>
                 <p>{Math.round(props.tempLo)}°</p>
             </div>
