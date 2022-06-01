@@ -20,7 +20,6 @@ const Weather = {
             }
         }catch(error) {
             console.log(error);
-            alert('Location not found in database. Try again.');
         }
     },
 

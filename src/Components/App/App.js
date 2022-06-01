@@ -10,6 +10,7 @@ function App() {
   const [currWeather, setCurrWeather] = useState({});
   const [sevWeather, setSevWeather] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
+  const [searchError, setSearchError] = useState();
 
   React.useEffect(() => {
     Weather.searchCity('New York').then(results => {
@@ -25,12 +26,17 @@ function App() {
 
   function search(search) {
     Weather.searchCity(search).then(results => {
+      (results ? setSearchError(false) : setSearchError(true));
       Weather.searchWeather(results[0], results[1]).then(results => {
         setCurrWeather(results[0]);
         results[1].daily.shift();
         setSevWeather(results[1].daily);
       });
     });
+  }
+
+  function hideModal() {
+    setSearchError(false);
   }
 
   function getDayOfWeek(dt) {
@@ -45,12 +51,14 @@ function App() {
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
   }
 
-
   return (
       <div className='App'>
         <h1>Weather App</h1>      
         <div className='Weather'> 
-          <SearchBar onSearch={search} />
+          <SearchBar onSearch={search}
+                     ifError={searchError}
+                     hideModal={hideModal}
+                     />
         {(isLoaded) ? (
         <div>  
           <h2 className='CityName'>{currWeather.name}</h2>

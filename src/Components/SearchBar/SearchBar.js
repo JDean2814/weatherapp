@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ErrModal from '../ErrModal/ErrModal';
 import './SearchBar.css';
 
 function SearchBar(props) {
@@ -16,10 +17,11 @@ function SearchBar(props) {
     }
 
     return (
-        <div>
+        <div className='Search'>
             <input placeholder='Enter a city name..' onChange={event => setState(event.target.value)} onKeyUp={handleKeyPress} value={state}></input>
             <button onClick={() => {search(state);
                                     setState('');}}>Search</button>
+            {(props.ifError) ? (<ErrModal hideModal={props.hideModal} />) : ('')}
         </div>
     )
 }

@@ -1,3 +1,7 @@
+.Search {
+    margin: 1em 0;
+}
+
 input {
     height: 1.5em;
     border: 2px solid white;
@@ -8,11 +12,13 @@ input {
     -moz-box-shadow: none;
     box-shadow: none;
     margin-inline-end: 1em;
+    position: relative;
 }
 
 button {
     background-color: rgb(28, 26, 37);
     color: white;
+    border: none;
     border-radius: 5px;
     height: 2em;
 }
@@ -21,6 +27,7 @@ button:hover {
     font-weight: bold;
     cursor: pointer;
     background-color: transparent;
+    border: 2px solid rgb(33, 31, 43);
     color: rgb(33, 31, 43);
 }
 
@@ -28,4 +35,3 @@ button:hover {
     color: rgb(0, 0, 0);
     opacity: 1; 
   }
-
