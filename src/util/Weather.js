@@ -1,5 +1,5 @@
 const baseURL = 'https://api.openweathermap.org/data/2.5/';
-const geoURL = `http://api.openweathermap.org/geo/1.0/`;
+const geoURL = `https://api.openweathermap.org/geo/1.0/`;
 const API_KEY = '71a9af80e5fec649349d98fd51cd3685';
 let current;
 let sevenDay;
