@@ -36,4 +36,5 @@ button:hover {
 ::placeholder { 
     color: rgb(0, 0, 0, 0.8);
     font-size: 1.25em; 
+    font-style: italic;
   }

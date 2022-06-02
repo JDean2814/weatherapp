@@ -73,7 +73,7 @@ function App() {
           <SevenDayForecast days={sevWeather}
                             getDayOfWeek={getDayOfWeek} />
         </div>
-        ) : (<h1>Loading...</h1>)}                 
+        ) : (<div className='loader'></div>)}                 
         </div>
       </div>  
     );
