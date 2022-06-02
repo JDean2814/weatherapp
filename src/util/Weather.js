@@ -8,7 +8,7 @@ let lon;
 
 const Weather = {
     async searchCity(search) {
-        const urlToFetch = `${geoURL}direct?q=${search}&limit=5&appid=${API_KEY}`;
+        const urlToFetch = `${geoURL}direct?q=${search[0]},${search[1]},&limit=5&appid=${API_KEY}`;
 
         try {
             const response = await fetch(urlToFetch);

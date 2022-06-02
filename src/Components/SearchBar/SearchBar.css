@@ -1,9 +1,11 @@
 .Search {
-    margin: 1em 0;
+    margin: 0;
+    margin-bottom: 1em;
 }
 
 input {
-    height: 1.5em;
+    height: 2em;
+    width: 15em;
     border: 2px solid white;
     border-radius: 5px;
     background-image:none;
@@ -20,7 +22,7 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    height: 2em;
+    height: 2.5em;
 }
 
 button:hover {
@@ -32,6 +34,6 @@ button:hover {
 }
 
 ::placeholder { 
-    color: rgb(0, 0, 0);
-    opacity: 1; 
+    color: rgb(0, 0, 0, 0.8);
+    font-size: 1.25em; 
   }

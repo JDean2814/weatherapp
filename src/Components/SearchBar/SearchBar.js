@@ -6,7 +6,8 @@ function SearchBar(props) {
     const [state, setState] = useState('');
     
     function search(state) {
-        props.onSearch(state);
+        let arr = state.split(', ');
+        props.onSearch(arr);
         setState('');
     }
 
@@ -18,7 +19,7 @@ function SearchBar(props) {
 
     return (
         <div className='Search'>
-            <input placeholder='Enter a city name..' onChange={event => setState(event.target.value)} onKeyUp={handleKeyPress} value={state}></input>
+            <input placeholder='Ex. [New York, NY]' onChange={event => setState(event.target.value)} onKeyUp={handleKeyPress} value={state}></input>
             <button onClick={() => {search(state);
                                     setState('');}}>Search</button>
             {(props.ifError) ? (<ErrModal hideModal={props.hideModal} />) : ('')}

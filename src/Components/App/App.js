@@ -13,7 +13,7 @@ function App() {
   const [searchError, setSearchError] = useState();
 
   React.useEffect(() => {
-    Weather.searchCity('New York').then(results => {
+    Weather.searchCity(['New York', 'NY']).then(results => {
       Weather.searchWeather(results[0], results[1]).then(results => {
         setCurrWeather(results[0]);
         results[1].daily.shift();
@@ -53,7 +53,8 @@ function App() {
 
   return (
       <div className='App'>
-        <h1>Weather App</h1>      
+        <h1>Weather App</h1>
+        <h3 className='instruct'>Search for a city by typing city name followed by a comma and two letter state code. </h3>      
         <div className='Weather'> 
           <SearchBar onSearch={search}
                      ifError={searchError}

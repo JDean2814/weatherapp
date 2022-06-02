@@ -16,7 +16,13 @@ html,
   font-weight: bold;
   color: rgb(255, 255, 255);
   margin-top: 0;
+  margin-bottom: 0;
   padding-top: .5em;
+}
+
+.instruct {
+  color: white;
+  margin-bottom: 2em;
 }
 
 .CityName {
