@@ -1,6 +1,7 @@
 import './ErrModal.css';
 
 function ErrModal(props) {
+
     return (
         <div className='modal'>
             <div className='modal_content'>

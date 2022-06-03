@@ -7,6 +7,7 @@ let lat;
 let lon;
 
 const Weather = {
+//Making an API request with our user input to return lat and lon for location
     async searchCity(search) {
         const urlToFetch = `${geoURL}direct?q=${search[0]},${search[1]},&limit=5&appid=${API_KEY}`;
 
@@ -24,6 +25,7 @@ const Weather = {
         }
     },
 
+//Making another API request with the lat and lon returned from last request to get weather data for the location searched
     async searchWeather(lat, lon) {
         const sevenUrlToFetch = `${baseURL}onecall?lat=${lat}&lon=${lon}&exclude=alerts&appid=${API_KEY}&units=imperial`;
         const currUrlToFetch = `${baseURL}weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;

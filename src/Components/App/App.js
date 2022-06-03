@@ -12,6 +12,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [searchError, setSearchError] = useState();
 
+//Making request from API on load to return weather data for New York using functions from Weather.js
   React.useEffect(() => {
     Weather.searchCity(['New York', 'NY']).then(results => {
       Weather.searchWeather(results[0], results[1]).then(results => {
@@ -23,7 +24,7 @@ function App() {
     });
   }, []);
 
-
+//Grabs our input from SearchBar component and makes an API request to return weather data using functions from Weather.js
   function search(search) {
     Weather.searchCity(search).then(results => {
       (results ? setSearchError(false) : setSearchError(true));
@@ -35,10 +36,12 @@ function App() {
     });
   }
 
+//Hides the error modal
   function hideModal() {
     setSearchError(false);
   }
 
+//Using the date object and methods to get day of the week from the UNIX timestamp returned from the API
   function getDayOfWeek(dt) {
     const daysArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     let date = new Date();
@@ -46,11 +49,13 @@ function App() {
     return daysArr[date.getDay()];
 }
 
+//Using the date object and methods to get the current date from the UNIX timestamp returned from the API
   function getDate(dt) {
     let date = new Date(dt * 1000);
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
   }
 
+//Rendering the app and passing down data from the API to the components
   return (
       <div className='App'>
         <h1>Weather App</h1>
