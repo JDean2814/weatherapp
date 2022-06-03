@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Weather App by Jordan Dean
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple weather web application that uses [Openweather](https://openweathermap.org) API to request and display weather data for a city that you search
 
 ## Available Scripts
 
